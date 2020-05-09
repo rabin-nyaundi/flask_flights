@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+
+{% block title %} Flight {% endblock %}
+
+
+{% block header %} <h1 class="display-4">Flight ID: {{ flight.id }}</h1>{% endblock %}
+
+
+{% block content %}
+
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">Origin</th>
+            <th scope="col">Destination</th>
+            <th scope="col">Duration</th>
+            <th scope="col">Passengers</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ flight.origin }}</td>
+            <td>{{ flight.destination }}</td>
+            <td>{{ flight.duration }}</td>
+            
+            <td>
+                <ol>
+                    {% for passenger in passengers %}
+
+                    <li>{{passenger.name}}</li>
+
+                    {% else %}
+
+                    <li><td>No Passengers.</td></li>
+                    {% endfor %}
+                </ol>
+            </td>
+            
+        </tr>
+    </tbody>
+</table>
+{% endblock %}
